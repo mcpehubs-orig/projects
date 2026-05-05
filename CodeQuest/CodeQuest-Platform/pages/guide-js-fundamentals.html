@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fundamentals - CodeQuest</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-sidebar">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h3>📚 Learning Path</h3>
+            <ul class="guide-nav">
+                <li><a href="#intro" class="active">Introduction</a></li>
+                <li><a href="#variables">Variables & Types</a></li>
+                <li><a href="#operators">Operators</a></li>
+                <li><a href="#exercise">Practice</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </div>
+
+        <div class="guide-content">
+            <header class="guide-header">
+                <span class="guide-level">Beginner</span>
+                <h1>JavaScript Fundamentals</h1>
+                <p>Master the basics of JavaScript programming</p>
+                <div class="guide-meta">
+                    <span>⏱️ 3 hours</span>
+                    <span>📊 1,234 students</span>
+                    <span>⭐ 4.9/5</span>
+                </div>
+            </header>
+
+            <section id="intro" class="guide-section">
+                <h2>Introduction to JavaScript</h2>
+                <p>JavaScript is a versatile programming language that powers interactive web experiences. Whether you want to build dynamic websites, mobile apps, or even backend services, JavaScript is a great choice.</p>
+                
+                <div class="highlight-box">
+                    <strong>💡 Why Learn JavaScript?</strong>
+                    <ul>
+                        <li>Works in every web browser</li>
+                        <li>Used for frontend AND backend development</li>
+                        <li>Easy to learn, powerful to master</li>
+                        <li>Huge job market demand</li>
+                    </ul>
+                </div>
+
+                <h3>What You'll Learn</h3>
+                <ol>
+                    <li>How to run JavaScript code</li>
+                    <li>Variables and data types</li>
+                    <li>Operators and expressions</li>
+                    <li>Control flow (if/else)</li>
+                    <li>Loops and iteration</li>
+                </ol>
+            </section>
+
+            <section id="variables" class="guide-section">
+                <h2>Variables & Data Types</h2>
+                
+                <h3>What are Variables?</h3>
+                <p>Variables are containers that store values. Think of them as labeled boxes that hold information.</p>
+
+                <div class="code-example">
+                    <pre><code>// Declaring variables
+const name = "Alice";      // Text (String)
+let age = 25;              // Number
+var isStudent = true;      // Boolean (true/false)
+let score;                 // Undefined (no value yet)</code></pre>
+                </div>
+
+                <h3>const vs let vs var</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Scope</th>
+                        <th>Reassignable</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td><strong>const</strong></td>
+                        <td>Block</td>
+                        <td>❌ No</td>
+                        <td>Default choice (most safe)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>let</strong></td>
+                        <td>Block</td>
+                        <td>✅ Yes</td>
+                        <td>When you need to change values</td>
+                    </tr>
+                    <tr>
+                        <td><strong>var</strong></td>
+                        <td>Function</td>
+                        <td>✅ Yes</td>
+                        <td>Legacy (avoid in modern code)</td>
+                    </tr>
+                </table>
+
+                <h3>Data Types</h3>
+                <div class="code-example">
+                    <pre><code>// String
+const message = "Hello World";
+
+// Number
+const count = 42;
+const price = 19.99;
+
+// Boolean
+const isActive = true;
+
+// Array
+const fruits = ["apple", "banana", "orange"];
+
+// Object
+const person = { name: "Bob", age: 30 };
+
+// null and undefined
+let empty = null;
+let notAssigned;  // undefined</code></pre>
+                </div>
+            </section>
+
+            <section id="operators" class="guide-section">
+                <h2>Operators</h2>
+
+                <h3>Arithmetic Operators</h3>
+                <div class="code-example">
+                    <pre><code>const a = 10;
+const b = 3;
+
+console.log(a + b);  // 13 (addition)
+console.log(a - b);  // 7 (subtraction)
+console.log(a * b);  // 30 (multiplication)
+console.log(a / b);  // 3.33 (division)
+console.log(a % b);  // 1 (modulo - remainder)
+console.log(a ** b); // 1000 (exponentiation)</code></pre>
+                </div>
+
+                <h3>Comparison Operators</h3>
+                <div class="code-example">
+                    <pre><code>console.log(5 == "5");   // true (loose equality)
+console.log(5 === "5");  // false (strict equality)
+console.log(5 > 3);      // true
+console.log(5 < 3);      // false
+console.log(5 >= 5);     // true
+console.log(5 <= 3);     // false
+console.log(5 !== "5");  // true (not equal)</code></pre>
+                </div>
+
+                <h3>Logical Operators</h3>
+                <div class="code-example">
+                    <pre><code>const x = true;
+const y = false;
+
+console.log(x && y);  // false (AND - both must be true)
+console.log(x || y);  // true (OR - at least one must be true)
+console.log(!x);      // false (NOT - reverses boolean)</code></pre>
+                </div>
+            </section>
+
+            <section id="exercise" class="guide-section">
+                <h2>Practice Exercise</h2>
+                <p>Try to solve this exercise using what you've learned:</p>
+
+                <div class="exercise-box">
+                    <h3>🎯 Exercise: Calculate BMI</h3>
+                    <p>Write code to calculate Body Mass Index (BMI). BMI = weight (kg) / (height (m) ^ 2)</p>
+                    <div class="code-example">
+                        <pre><code>// Fill in the blanks
+const weight = ____;  // Your weight in kg
+const height = ____;  // Your height in meters
+const bmi = _________;  // Calculate BMI
+
+console.log("Your BMI is: " + bmi);</code></pre>
+                    </div>
+                    <button class="btn btn-primary">Show Solution</button>
+                </div>
+            </section>
+
+            <section id="quiz" class="guide-section">
+                <h2>Quick Quiz</h2>
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> What is the difference between == and ===?</p>
+                    <label><input type="radio" name="q1"> == checks loose equality, === checks strict equality</label>
+                    <label><input type="radio" name="q1"> They are the same</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> Which should be your default choice for variables?</p>
+                    <label><input type="radio" name="q2"> const</label>
+                    <label><input type="radio" name="q2"> let</label>
+                    <label><input type="radio" name="q2"> var</label>
+                </div>
+
+                <button class="btn btn-primary">Submit Quiz</button>
+            </section>
+
+            <div class="guide-footer">
+                <button class="btn btn-secondary">← Previous Guide</button>
+                <button class="btn btn-primary">Next Guide →</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .guide-container {
+            display: flex;
+            min-height: 100vh;
+            background: #f3f4f6;
+        }
+
+        .guide-sidebar {
+            width: 250px;
+            background: white;
+            padding: 30px 20px;
+            border-right: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .back-btn {
+            display: block;
+            margin-bottom: 30px;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .guide-nav {
+            list-style: none;
+        }
+
+        .guide-nav li {
+            margin-bottom: 15px;
+        }
+
+        .guide-nav a {
+            text-decoration: none;
+            color: #6b7280;
+            font-size: 14px;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .guide-nav a:hover,
+        .guide-nav a.active {
+            background: #ede9fe;
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .guide-content {
+            flex: 1;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .guide-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .guide-level {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .guide-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .guide-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .guide-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .guide-section h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #374151;
+        }
+
+        .guide-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #6b7280;
+        }
+
+        .guide-section ol,
+        .guide-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .guide-section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #ede9fe;
+            border-left: 4px solid #6366f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box strong {
+            color: #6366f1;
+        }
+
+        .highlight-box ul {
+            margin: 10px 0 0 20px;
+        }
+
+        .code-example {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .code-example code {
+            color: #e5e7eb;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table th {
+            background: #f3f4f6;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .exercise-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .exercise-box h3 {
+            color: #047857;
+            margin-top: 0;
+        }
+
+        .quiz-question {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .quiz-question input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .guide-footer {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .guide-container {
+                flex-direction: column;
+            }
+
+            .guide-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            .guide-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
