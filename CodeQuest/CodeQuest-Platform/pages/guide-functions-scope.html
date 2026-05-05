@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions & Scope - CodeQuest</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-sidebar">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h3>📚 Learning Path</h3>
+            <ul class="guide-nav">
+                <li><a href="#intro" class="active">Functions Intro</a></li>
+                <li><a href="#declaration">Function Declaration</a></li>
+                <li><a href="#scope">Understanding Scope</a></li>
+                <li><a href="#exercise">Practice</a></li>
+            </ul>
+        </div>
+
+        <div class="guide-content">
+            <header class="guide-header">
+                <span class="guide-level">Beginner</span>
+                <h1>Functions & Scope</h1>
+                <p>Learn to write reusable code with functions</p>
+                <div class="guide-meta">
+                    <span>⏱️ 2.5 hours</span>
+                    <span>📊 856 students</span>
+                </div>
+            </header>
+
+            <section id="intro" class="guide-section">
+                <h2>What are Functions?</h2>
+                <p>Functions are reusable blocks of code that perform a specific task. Instead of writing the same code multiple times, you write it once in a function and call it whenever needed.</p>
+
+                <div class="code-example">
+                    <pre><code>// Function definition
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+// Function call
+greet("Alice");  // Output: Hello, Alice!
+greet("Bob");    // Output: Hello, Bob!</code></pre>
+                </div>
+
+                <h3>Benefits of Functions</h3>
+                <ul>
+                    <li>DRY (Don't Repeat Yourself) principle</li>
+                    <li>Better code organization</li>
+                    <li>Easier debugging</li>
+                    <li>Code reusability</li>
+                </ul>
+            </section>
+
+            <section id="declaration" class="guide-section">
+                <h2>Function Declaration Methods</h2>
+
+                <h3>1. Function Declaration</h3>
+                <div class="code-example">
+                    <pre><code>function add(a, b) {
+    return a + b;
+}
+
+console.log(add(5, 3));  // 8</code></pre>
+                </div>
+
+                <h3>2. Function Expression</h3>
+                <div class="code-example">
+                    <pre><code>const subtract = function(a, b) {
+    return a - b;
+};
+
+console.log(subtract(10, 4));  // 6</code></pre>
+                </div>
+
+                <h3>3. Arrow Function (ES6)</h3>
+                <div class="code-example">
+                    <pre><code>const multiply = (a, b) => a * b;
+
+console.log(multiply(4, 5));  // 20</code></pre>
+                </div>
+
+                <h3>Parameters vs Arguments</h3>
+                <p><strong>Parameters:</strong> Variables in the function definition</p>
+                <p><strong>Arguments:</strong> Actual values passed when calling the function</p>
+            </section>
+
+            <section id="scope" class="guide-section">
+                <h2>Understanding Scope</h2>
+                <p>Scope determines where variables can be accessed in your code.</p>
+
+                <h3>Global Scope</h3>
+                <div class="code-example">
+                    <pre><code>const globalVar = "I'm global";
+
+function showVar() {
+    console.log(globalVar);  // Accessible
+}
+
+showVar();  // Output: I'm global</code></pre>
+                </div>
+
+                <h3>Local Scope</h3>
+                <div class="code-example">
+                    <pre><code>function myFunction() {
+    const localVar = "I'm local";
+    console.log(localVar);  // Works
+}
+
+myFunction();  // Output: I'm local
+console.log(localVar);  // Error! Not accessible</code></pre>
+                </div>
+
+                <h3>Block Scope (const/let)</h3>
+                <div class="code-example">
+                    <pre><code>if (true) {
+    const blockVar = "I'm block scoped";
+    console.log(blockVar);  // Works
+}
+
+console.log(blockVar);  // Error! Outside block</code></pre>
+                </div>
+            </section>
+
+            <section id="exercise" class="guide-section">
+                <h2>Practice Exercise</h2>
+                <div class="exercise-box">
+                    <h3>🎯 Write a Calculator Function</h3>
+                    <p>Create a function that takes two numbers and an operation (+, -, *, /) and returns the result.</p>
+                    <button class="btn btn-primary">Show Solution</button>
+                </div>
+            </section>
+
+            <div class="guide-footer">
+                <button class="btn btn-secondary">← Previous</button>
+                <button class="btn btn-primary">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .guide-container {
+            display: flex;
+            min-height: 100vh;
+            background: #f3f4f6;
+        }
+
+        .guide-sidebar {
+            width: 250px;
+            background: white;
+            padding: 30px 20px;
+            border-right: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .back-btn {
+            display: block;
+            margin-bottom: 30px;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .guide-nav {
+            list-style: none;
+        }
+
+        .guide-nav li {
+            margin-bottom: 15px;
+        }
+
+        .guide-nav a {
+            text-decoration: none;
+            color: #6b7280;
+            font-size: 14px;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .guide-nav a:hover,
+        .guide-nav a.active {
+            background: #ede9fe;
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .guide-content {
+            flex: 1;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .guide-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .guide-level {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .guide-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .guide-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .guide-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .guide-section h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #374151;
+        }
+
+        .guide-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #6b7280;
+        }
+
+        .guide-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .guide-section li {
+            margin-bottom: 8px;
+        }
+
+        .code-example {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Monaco', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .exercise-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .guide-footer {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #1f2937;
+        }
+
+        @media (max-width: 768px) {
+            .guide-container {
+                flex-direction: column;
+            }
+
+            .guide-sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .guide-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
