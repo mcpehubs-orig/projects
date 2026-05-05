@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays & Methods - CodeQuest</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-sidebar">
+            <a href="../index.html" class="back-btn">← Back</a>
+            <h3>📚 Learning Path</h3>
+            <ul class="guide-nav">
+                <li><a href="#basics" class="active">Array Basics</a></li>
+                <li><a href="#methods">Common Methods</a></li>
+                <li><a href="#iteration">Iteration Methods</a></li>
+                <li><a href="#advanced">Advanced Techniques</a></li>
+                <li><a href="#practice">Practice</a></li>
+            </ul>
+        </div>
+
+        <div class="guide-content">
+            <header class="guide-header">
+                <span class="guide-level">Beginner</span>
+                <h1>Arrays & Array Methods</h1>
+                <p>Master working with arrays and built-in array methods</p>
+                <div class="guide-meta">
+                    <span>⏱️ 3 hours</span>
+                    <span>📊 1,567 students</span>
+                    <span>⭐ 4.9/5</span>
+                </div>
+            </header>
+
+            <section id="basics" class="guide-section">
+                <h2>Array Basics</h2>
+                <p>Arrays are ordered collections of values. They can contain any data type and are fundamental to JavaScript programming.</p>
+
+                <div class="code-example">
+                    <pre><code>// Creating arrays
+const fruits = ["apple", "banana", "orange"];
+const numbers = [1, 2, 3, 4, 5];
+const mixed = ["text", 42, true, null];
+const empty = [];
+
+// Accessing elements (0-indexed)
+console.log(fruits[0]);      // "apple"
+console.log(fruits[2]);      // "orange"
+console.log(fruits.length);  // 3
+
+// Modifying arrays
+fruits[1] = "blueberry";
+fruits.push("grape");        // Add to end
+fruits.pop();                // Remove from end
+fruits.unshift("mango");     // Add to start
+fruits.shift();              // Remove from start</code></pre>
+                </div>
+            </section>
+
+            <section id="methods" class="guide-section">
+                <h2>Common Array Methods</h2>
+
+                <h3>Adding/Removing Elements</h3>
+                <div class="code-example">
+                    <pre><code>const arr = [1, 2, 3, 4, 5];
+
+// splice - remove/add elements at specific index
+arr.splice(2, 1);           // Remove 1 element at index 2
+arr.splice(2, 0, 99);       // Insert 99 at index 2
+arr.splice(1, 2, 7, 8);     // Replace 2 elements starting at index 1
+
+// slice - extract a portion (doesn't modify original)
+const copy = arr.slice();            // Copy entire array
+const part = arr.slice(1, 3);        // Get elements at index 1-2
+const last = arr.slice(-2);          // Last 2 elements</code></pre>
+                </div>
+
+                <h3>Finding Elements</h3>
+                <div class="code-example">
+                    <pre><code>const users = [
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+    { id: 3, name: "Charlie" }
+];
+
+// indexOf - find index of element
+const index = [1, 2, 3].indexOf(2);  // 1
+const notFound = [1, 2, 3].indexOf(5);  // -1
+
+// includes - check if element exists
+const has = [1, 2, 3].includes(2);   // true
+
+// find - get first element matching condition
+const user = users.find(u => u.id === 2);  // { id: 2, name: "Bob" }
+
+// findIndex - get index of matching element
+const idx = users.findIndex(u => u.name === "Alice");  // 0</code></pre>
+                </div>
+            </section>
+
+            <section id="iteration" class="guide-section">
+                <h2>Iteration Methods</h2>
+                <p>These methods allow you to work with array elements efficiently.</p>
+
+                <h3>forEach - Execute function for each element</h3>
+                <div class="code-example">
+                    <pre><code>const numbers = [1, 2, 3, 4];
+
+numbers.forEach((num, index) => {
+    console.log(`Index ${index}: ${num}`);
+});</code></pre>
+                </div>
+
+                <h3>map - Transform elements into new array</h3>
+                <div class="code-example">
+                    <pre><code>const numbers = [1, 2, 3, 4];
+const squared = numbers.map(n => n * n);
+console.log(squared);  // [1, 4, 9, 16]
+
+// With objects
+const prices = [10, 20, 30];
+const withTax = prices.map(p => p * 1.1);
+console.log(withTax);  // [11, 22, 33]</code></pre>
+                </div>
+
+                <h3>filter - Keep elements that match condition</h3>
+                <div class="code-example">
+                    <pre><code>const numbers = [1, 2, 3, 4, 5, 6];
+const evens = numbers.filter(n => n % 2 === 0);
+console.log(evens);  // [2, 4, 6]
+
+// Filter objects
+const users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 17 },
+    { name: "Charlie", age: 30 }
+];
+const adults = users.filter(u => u.age >= 18);</code></pre>
+                </div>
+
+                <h3>reduce - Combine array into single value</h3>
+                <div class="code-example">
+                    <pre><code>const numbers = [1, 2, 3, 4, 5];
+
+// Sum all numbers
+const sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum);  // 15
+
+// Find maximum
+const max = numbers.reduce((max, num) => num > max ? num : max);
+console.log(max);  // 5
+
+// Group by condition
+const grouped = numbers.reduce((acc, num) => {
+    if (num % 2 === 0) acc.evens.push(num);
+    else acc.odds.push(num);
+    return acc;
+}, { evens: [], odds: [] });</code></pre>
+                </div>
+            </section>
+
+            <section id="advanced" class="guide-section">
+                <h2>Advanced Techniques</h2>
+
+                <h3>Chaining Methods</h3>
+                <div class="code-example">
+                    <pre><code>const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Chain multiple operations
+const result = numbers
+    .filter(n => n % 2 === 0)    // [2, 4, 6, 8, 10]
+    .map(n => n * 2)              // [4, 8, 12, 16, 20]
+    .reduce((sum, n) => sum + n); // 60
+
+console.log(result);  // 60</code></pre>
+                </div>
+
+                <h3>Spread Operator</h3>
+                <div class="code-example">
+                    <pre><code>const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+// Merge arrays
+const combined = [...arr1, ...arr2];  // [1, 2, 3, 4, 5, 6]
+
+// Copy array
+const copy = [...arr1];
+
+// Add elements
+const withExtra = [0, ...arr1, 4];  // [0, 1, 2, 3, 4]</code></pre>
+                </div>
+
+                <h3>Array Destructuring</h3>
+                <div class="code-example">
+                    <pre><code>const [first, second, ...rest] = [1, 2, 3, 4, 5];
+console.log(first);  // 1
+console.log(second); // 2
+console.log(rest);   // [3, 4, 5]
+
+// In function parameters
+const printArray = ([a, b]) => {
+    console.log(a, b);
+};</code></pre>
+                </div>
+            </section>
+
+            <section id="practice" class="guide-section">
+                <h2>Challenge: Data Processing</h2>
+                <div class="exercise-box">
+                    <h3>🎯 Process Student Grades</h3>
+                    <p>Given an array of students with their scores, find students above average and sort them:</p>
+                    <div class="code-example">
+                        <pre><code>const students = [
+    { name: "Alice", score: 85 },
+    { name: "Bob", score: 92 },
+    { name: "Charlie", score: 78 },
+    { name: "Diana", score: 95 },
+    { name: "Eve", score: 88 }
+];
+
+// TODO:
+// 1. Calculate average score
+// 2. Filter students with above-average scores
+// 3. Sort by score (descending)
+// 4. Map to just names
+
+// Expected output: ["Diana", "Bob", "Alice"]</code></pre>
+                    </div>
+                    <button class="btn btn-primary">Show Solution</button>
+                </div>
+            </section>
+
+            <div class="guide-footer">
+                <button class="btn btn-secondary">← Previous Guide</button>
+                <button class="btn btn-primary">Next Guide →</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .guide-container {
+            display: flex;
+            min-height: 100vh;
+            background: #f3f4f6;
+        }
+
+        .guide-sidebar {
+            width: 250px;
+            background: white;
+            padding: 30px 20px;
+            border-right: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .back-btn {
+            display: block;
+            margin-bottom: 30px;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .guide-nav {
+            list-style: none;
+        }
+
+        .guide-nav li {
+            margin-bottom: 15px;
+        }
+
+        .guide-nav a {
+            text-decoration: none;
+            color: #6b7280;
+            font-size: 14px;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .guide-nav a:hover,
+        .guide-nav a.active {
+            background: #ede9fe;
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .guide-content {
+            flex: 1;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .guide-header {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .guide-level {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .guide-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .guide-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .guide-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .guide-section h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #374151;
+        }
+
+        .guide-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #6b7280;
+        }
+
+        .code-example {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .code-example code {
+            color: #e5e7eb;
+        }
+
+        .exercise-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .exercise-box h3 {
+            color: #047857;
+            margin-top: 0;
+        }
+
+        .guide-footer {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+    </style>
+</body>
+</html>
