@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeQuest Platform - Gamified Coding Academy</title>
+    <meta
+      name="description"
+      content="Learn programming with game-style quests, coding books, practical guides, and deep technical articles in one platform."
+    />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <h1>CodeQuest</h1>
+          <p>Play. Practice. Become pro.</p>
+        </div>
+
+        <div class="auth-box">
+          <button id="google-login-btn" class="btn btn-secondary">Google Login</button>
+          <button id="guest-login-btn" class="btn btn-primary">Guest Mode</button>
+          <button id="logout-btn" class="btn btn-ghost hidden">Logout</button>
+        </div>
+
+        <nav class="nav">
+          <a href="#dashboard" class="nav-link active">Home</a>
+          <a href="#quest" class="nav-link">Code Quest</a>
+          <a href="#editor" class="nav-link">Mini IDE</a>
+          <a href="#guides" class="nav-link">Guides</a>
+          <a href="#books" class="nav-link">Books</a>
+          <a href="#articles" class="nav-link">Articles</a>
+          <a href="#profile" class="nav-link">Profile</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section id="dashboard" class="panel active">
+          <header class="hero card">
+            <p class="kicker">CodeQuest Academy</p>
+            <h2>Learn coding like a game, ship like an engineer</h2>
+            <p id="motivation-message">
+              Start your learning journey: complete quests, unlock books, and read production-level guides.
+            </p>
+            <div class="hero-actions">
+              <button id="start-journey-btn" class="btn btn-primary">Enter Game</button>
+              <a href="#guides" class="btn btn-ghost nav-link-inline">Open Learning Path</a>
+            </div>
+          </header>
+
+          <div class="stats-grid">
+            <article class="card"><h3>XP</h3><p id="xp-value">0</p></article>
+            <article class="card"><h3>Level</h3><p id="level-value">Beginner</p></article>
+            <article class="card"><h3>Streak</h3><p id="streak-value">0 days</p></article>
+            <article class="card"><h3>Completed</h3><p id="completed-value">0 tasks</p></article>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Daily Challenge</h3>
+              <p id="daily-challenge-title"></p>
+              <button id="start-daily-btn" class="btn btn-primary">Start Daily Quest</button>
+            </div>
+            <div class="card">
+              <h3>Achievements</h3>
+              <ul id="achievements-list" class="achievement-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="quest" class="panel">
+          <header class="panel-header">
+            <h2>Code Quest</h2>
+            <p>Duolingo-like coding practice with feedback and progression.</p>
+          </header>
+          <div class="controls">
+            <select id="language-filter"></select>
+            <select id="level-filter"></select>
+            <button id="next-question-btn" class="btn btn-secondary">New Question</button>
+            <button id="use-hint-btn" class="btn btn-ghost">Use Hint</button>
+          </div>
+          <article class="card">
+            <p class="badge" id="question-meta"></p>
+            <h3 id="question-title">Press "New Question" to begin.</h3>
+            <pre id="question-code" class="code-block"></pre>
+            <div id="options-container" class="options"></div>
+            <button id="submit-answer-btn" class="btn btn-primary">Submit Answer</button>
+            <div id="hint-box" class="feedback hidden"></div>
+            <div id="answer-feedback" class="feedback"></div>
+          </article>
+        </section>
+
+        <section id="editor" class="panel">
+          <header class="panel-header">
+            <h2>Mini Code Editor</h2>
+            <p>Run JavaScript directly in your browser and test ideas quickly.</p>
+          </header>
+          <div class="editor-grid">
+            <div class="card">
+              <textarea id="code-editor" spellcheck="false">const name = "CodeQuest";
+console.log(`Hello ${name}`);</textarea>
+              <div class="editor-actions">
+                <button id="run-code-btn" class="btn btn-primary">Run</button>
+                <button id="clear-code-btn" class="btn btn-ghost">Clear</button>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Output</h3>
+              <pre id="code-output" class="code-output"></pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="guides" class="panel">
+          <header class="panel-header">
+            <h2>Guides Library</h2>
+            <p>Structured learning tracks with practical milestones.</p>
+          </header>
+          <div id="guides-grid" class="resource-grid"></div>
+        </section>
+
+        <section id="books" class="panel">
+          <header class="panel-header">
+            <h2>Books Shelf</h2>
+            <p>Curated programming books for fundamentals and advanced skills.</p>
+          </header>
+          <div id="books-grid" class="resource-grid"></div>
+        </section>
+
+        <section id="articles" class="panel">
+          <header class="panel-header">
+            <h2>Knowledge Articles</h2>
+            <p>Deep dives on engineering, architecture, and interview prep.</p>
+          </header>
+          <div id="articles-grid" class="resource-grid"></div>
+        </section>
+
+        <section id="profile" class="panel">
+          <header class="panel-header">
+            <h2>User Profile</h2>
+            <p>Progress, multipliers, streak, and account mode.</p>
+          </header>
+          <div class="card">
+            <p><strong>User:</strong> <span id="profile-user">Guest</span></p>
+            <p><strong>Mode:</strong> <span id="profile-mode">Local guest profile</span></p>
+            <p><strong>Hints left today:</strong> <span id="hints-left">3</span></p>
+            <p><strong>XP multiplier:</strong> <span id="xp-multiplier">x1</span></p>
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <p id="progress-label">0% to next level</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./src/js/firebase-config.example.js"></script>
+    <script src="./src/js/app.bundle.js"></script>
+  </body>
+</html>

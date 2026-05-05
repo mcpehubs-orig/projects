@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codequest-platform.example.com/sitemap.xml

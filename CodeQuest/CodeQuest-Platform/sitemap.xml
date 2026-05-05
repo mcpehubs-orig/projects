@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://codequest-platform.example.com/</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/learn-javascript.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/learn-python.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/learn-csharp.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/learn-java.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/learn-programming-online.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/javascript-practice.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/python-exercises.html</loc></url>
+  <url><loc>https://codequest-platform.example.com/pages/coding-challenges-free.html</loc></url>
+</urlset>

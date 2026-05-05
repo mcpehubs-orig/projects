@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeQuest Game - Duolingo Style Programming</title>
+    <link rel="stylesheet" href="./src/css/game.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="./index.html" class="back">Back to Academy</a>
+      <h1>CodeQuest Game</h1>
+      <p id="status-line">Build your streak today.</p>
+    </header>
+
+    <main class="game-layout">
+      <aside class="path-panel">
+        <h2>Skill Path</h2>
+        <div id="path-map" class="path-map"></div>
+      </aside>
+
+      <section class="quest-panel">
+        <div class="stats">
+          <article><span>XP</span><strong id="xp">0</strong></article>
+          <article><span>Level</span><strong id="level">Beginner</strong></article>
+          <article><span>Streak</span><strong id="streak">0</strong></article>
+          <article><span>Hints</span><strong id="hints">3</strong></article>
+        </div>
+
+        <article class="card">
+          <p id="meta" class="meta"></p>
+          <h3 id="title">Pick a node on the skill path</h3>
+          <pre id="code" class="code"></pre>
+          <div id="options" class="options"></div>
+          <div class="actions">
+            <button id="submit" class="btn primary">Submit</button>
+            <button id="hint-btn" class="btn ghost">Hint</button>
+            <button id="next" class="btn ghost">Next</button>
+          </div>
+          <div id="hint-box" class="feedback hidden"></div>
+          <div id="feedback" class="feedback"></div>
+        </article>
+
+        <article class="card">
+          <h3>Mini IDE</h3>
+          <textarea id="editor">const quest = "CodeQuest";
+console.log("Welcome to", quest);</textarea>
+          <div class="actions">
+            <button id="run" class="btn primary">Run JS</button>
+            <button id="clear" class="btn ghost">Clear</button>
+          </div>
+          <pre id="output" class="code"></pre>
+        </article>
+      </section>
+    </main>
+
+    <script src="./src/js/game.js"></script>
+  </body>
+</html>
